@@ -7,10 +7,6 @@ const cookieParser = require("cookie-parser");
 const hbs = require("hbs");
 const path = require("path");
 
-const session = require("express-session");
-const MongoStore = require("connect-mongo")(session);
-const flash = require("connect-flash");
-
 const app = express();
 
 mongoose
@@ -26,17 +22,74 @@ app.use(express.static(path.join(__dirname, "public")));
 
 hbs.registerPartials(path.join(__dirname, "/views/partials"));
 
-// needs to go to WWW file!!!
+const session = require("express-session");
+const MongoStore = require("connect-mongo")(session);
+const flash = require("connect-flash");
 
-const http = require("http");
-let server = http.createServer(app);
-server.listen(process.env.PORT, () => {
-  console.log("Listening on the Port");
+app.use(
+  session({
+    cookie: {
+      maxAge: 24 * 60 * 60 * 1000
+    },
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({ mongooseConnection: mongoose.connection })
+  })
+);
+
+const passport = require("passport");
+const LocalStrategy = require("passport-local").Strategy;
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.use(flash());
+
+passport.serializeUser((user, done) => {
+  done(null, user._id);
 });
 
-// app.get("/", (req, res) => {
-//   console.log("GET request to index.js made");
-//   res.render("index");
+const User = require("./models/User");
+
+passport.deserializeUser((id, done) => {
+  User.findById(id)
+    .then(userDocument => {
+      done(null, userDocument);
+    })
+    .catch(err => {
+      done(err);
+    });
+});
+
+passport.use(
+  new LocalStrategy((username, password, done) => {
+    User.findOne({ username: username })
+      .then(userDocument => {
+        if (!userDocument) {
+          done(null, false, { message: "Incorrect credentials" });
+          return;
+        }
+        bcrypt.compare(password, userDocument.password).then(match => {
+          if (!match) {
+            done(null, false, { message: "Incorrect credentials" });
+            return;
+          }
+          done(null, userDocument);
+        });
+      })
+      .catch(err => {
+        done(err);
+      });
+  })
+);
+
+// needs to go to WWW file!!!
+
+// const http = require("http");
+// let server = http.createServer(app);
+// server.listen(process.env.PORT, () => {
+//   console.log("Listening on the Port");
 // });
 
 const index = require("./routes/index");
