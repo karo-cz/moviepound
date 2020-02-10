@@ -1,11 +1,16 @@
 const mongoose = require("mongoose");
 
-const Schema = mongoose.Schema();
+// const Schema = mongoose.Schema();
 
-const movieSchema = new Schema({
-    omdbId: String
+const movieSchema = new mongoose.Schema({
+
   title: String,
-  year: Number
+   omdbId: String,
+  releaseDate: String, 
+  genre: Array,
+  image: String, 
+  trailer: String 
+
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

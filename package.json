@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Norizinus/moviepound#readme",
   "dependencies": {
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "connect-mongo": "^3.2.0",
@@ -28,6 +29,7 @@
     "hbs": "^4.1.0",
     "http": "0.0.0",
     "mongoose": "^5.8.11",
+    "node-fetch": "^2.6.0",
     "path": "^0.12.7"
   }
 }
