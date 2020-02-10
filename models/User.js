@@ -6,13 +6,13 @@ const userSchema = new mongoose.Schema({
   name: String,
   movieLog: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Movie"
     }
   ],
   wishList: [
     {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "Movie"
     }
   ]

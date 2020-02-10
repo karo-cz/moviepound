@@ -9,6 +9,12 @@ const path = require("path");
 
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(cookieParser());
+
+mongoose.set("useUnifiedTopology", true);
+
 mongoose
   .connect("mongodb://localhost/moviepound", { useNewUrlParser: true })
   .then(response => {
@@ -94,5 +100,8 @@ passport.use(
 
 const index = require("./routes/index");
 app.use("/", index);
+
+const authRoutes = require("./routes/auth");
+app.use("/", authRoutes);
 
 module.exports = app;

@@ -4,11 +4,13 @@ const bcrypt = require("bcrypt");
 const User = require("../models/User");
 
 router.get("/signup", (req, res, next) => {
-  res.render("signup.hbs");
+  console.log("Rendering Signup");
+  res.render("auth/signup.hbs");
 });
 
 router.get("/login", (req, res, next) => {
-  res.render("login.hbs", { errorMessage: req.flash("error") });
+  console.log("Rendering Login");
+  res.render("auth/login.hbs", { errorMessage: req.flash("error") });
 });
 
 router.get("/logout", (req, res, next) => {
@@ -28,6 +30,7 @@ router.post(
 );
 
 router.post("/signup", (req, res, next) => {
+  console.log(req.body);
   const { username, password } = req.body;
 
   if (!username) {
@@ -72,3 +75,5 @@ router.post("/signup", (req, res, next) => {
       next(err);
     });
 });
+
+module.exports = router;
