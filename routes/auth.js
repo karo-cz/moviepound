@@ -5,17 +5,17 @@ const User = require("../models/User");
 
 router.get("/signup", (req, res, next) => {
   console.log("Rendering Signup");
-  res.render("auth/signup.hbs");
+  res.render("auth/signup");
 });
 
 router.get("/login", (req, res, next) => {
   console.log("Rendering Login");
-  res.render("auth/login.hbs", { errorMessage: req.flash("error") });
+  res.render("auth/login", { message: req.flash("error") });
 });
 
 router.get("/logout", (req, res, next) => {
   req.logout();
-  req.redirect("/");
+  res.redirect("/");
 });
 
 const passport = require("passport");
@@ -34,15 +34,17 @@ router.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username) {
-    res.render("signup.hbs", {
-      errorMessage: "Please provide username"
+    console.log("username missing");
+    res.render("auth/signup", {
+      message: "Please provide username"
     });
     return;
   }
 
   if (password.length < 8) {
-    res.render("signup.hbs", {
-      errorMessage: "Password needs to be at least 8 characters long"
+    console.log("password not strong enough");
+    res.render("auth/signup", {
+      message: "Password needs to be at least 8 characters long"
     });
     return;
   }
@@ -50,8 +52,8 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ username: username })
     .then(user => {
       if (user) {
-        res.render("signup.hbs", {
-          errorMessage: "Username already taken"
+        res.render("auth/signup", {
+          message: "Username already taken"
         });
         return;
       }

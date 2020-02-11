@@ -7,11 +7,18 @@ hashtag.onkeyup = searchForHashtag;
 
 function searchForHashtag() {
   let searchTerm = hashtag.value;
+  let hashtagBox = document.querySelector(".hashtags");
   console.log(searchTerm);
+
+  if (searchTerm === "") {
+    hashtagBox.innerHTML = "";
+
+    return;
+  }
+
   axios
     .get(`http://localhost:3000/hashtag?hashtag=${hashtag.value}`)
     .then(response => {
-      let hashtagBox = document.querySelector(".hashtags");
       hashtagBox.innerHTML = "";
 
       if (response.data.length === 0) {
@@ -19,9 +26,9 @@ function searchForHashtag() {
         let hashtagSuggestion = document.createElement("p");
         hashtagSuggestion.innerText = hashtag.value;
         hashtagSuggestion.classList.add("hashtag-suggestion");
+        hashtagSuggestion.classList.add("new-hashtag");
         hashtagBox.appendChild(hashtagSuggestion);
         hashtagSuggestion.onclick = addHashtagToDatabas;
-
         return;
       }
 
