@@ -106,4 +106,7 @@ app.use("/", index);
 const authRoutes = require("./routes/auth");
 app.use("/", authRoutes);
 
+const hashtag = require("./routes/hashtags");
+app.use("/", hashtag);
+
 module.exports = app;

@@ -30,7 +30,7 @@ axios
   .then(response => {
     // console.log(response.data.genres);
     response.data.genres.forEach(genre => {
-      Hashtag.create({ tag: genre.name, deletable: false })
+      Hashtag.create({ tag: genre.name.toLowerCase(), deletable: false })
         .then(response => console.log(response))
         .catch(err => console.log(err));
     });
@@ -71,8 +71,9 @@ moviesJSON.forEach(movie => {
                   console.log("movie done: ", response);
                   // console.log(movieDetails.genres);
                   movieDetails.genres.forEach(genre => {
+                    console.log("adding hashtag");
                     Hashtag.updateOne(
-                      { tag: genre.name },
+                      { tag: genre.name.toLowerCase() },
                       { $push: { movies: movieDocument._id } }
                     ).then(response => {
                       // hashtagDocument.movies.push(movieDocument._id);
