@@ -1,11 +1,28 @@
-    <h1>Hello World!</h1>
+<h1>Hello World!</h1>
 
-    <div class="movie-list">
-        {{#each movies}}
-        <div class="movie-card">
+<div class="movie-list">
 
-            <h3>{{movies.title}}</h3>
-
+    <div class="card mb-3">
+        <div class="row no-gutters">
+            <div class="col-md-8">
+                <iframe class="trailer card-img" width="720" height="600" src="" frameborder="0"
+                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
+            </div>
+            <div class="col-md-4">
+                <div class="card-body">
+                    <h5 class="movie-title card-title">Fishing...</h5>
+                    <p class="movie-overview card-text"></p>
+                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                </div>
+            </div>
         </div>
-        {{/each}}
     </div>
+
+
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="javascript/randomMovie.js"></script>
