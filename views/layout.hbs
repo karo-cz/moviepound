@@ -14,14 +14,17 @@
         <ul>
             <li class="nav-item">
                 <a href="/">Home</a></li>
-            {{!-- {{#if user}}
-            <li><a href="/logout">Logout</a></li>
-            {{else}} --}}
+            {{#if user}}
+            <li class="nav-item"><a href="/logout">Logout</a></li>
+            {{else}}
             <li class="nav-item"><a href="/signup">Signup</a></li>
             <li class="nav-item"><a href="/login">Login</a></li>
+            {{/if}}
         </ul>
     </nav>
-    {{{body}}}
+    <div class="page-body">
+        {{{body}}}
+    </div>
 
 </body>
 

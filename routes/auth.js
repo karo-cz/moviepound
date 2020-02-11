@@ -59,7 +59,11 @@ router.post("/signup", (req, res, next) => {
       bcrypt
         .hash(password, 10)
         .then(hash => {
-          return User.create({ username: username, password: hash });
+          return User.create({
+            username: username,
+            password: hash,
+            role: "user"
+          });
         })
         .then(createdUser => {
           req.login(createdUser, err => {
