@@ -1,10 +1,6 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-<<<<<<< HEAD
-  margin: 0 auto;
-=======
   margin: 0;
->>>>>>> 63797d05edcaae55dc02aa05893bf8665900c72b
 }
 
 a {
@@ -30,4 +26,13 @@ nav > ul {
 
 .page-body {
   padding: 1em;
+}
+
+#serarch-form {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#search {
+  width: 90vw;
 }

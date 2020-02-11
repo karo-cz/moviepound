@@ -1,11 +1,19 @@
-    <h1>Hello World!</h1>
+<h1>Hello World!</h1>
 
-    <div class="movie-list">
-        {{#each movies}}
-        <div class="movie-card">
+{{#if user}}
+<form id="search-form" action="/search" method="get">
+    <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
+    <button type="submit">Search</button>
+</form>
 
-            <h3>{{movies.title}}</h3>
+{{/if}}
 
-        </div>
-        {{/each}}
+<div class="movie-list">
+    {{#each movies}}
+    <div class="movie-card">
+
+        <h3>{{movies.title}}</h3>
+
     </div>
+    {{/each}}
+</div>
