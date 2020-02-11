@@ -36,3 +36,21 @@ nav > ul {
 #search {
   width: 90vw;
 }
+
+.search-results {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.movie-card {
+  display: flex;
+  flex-flow: column;
+  margin: 0.5em;
+  width: 30vw;
+  align-items: center;
+}
+
+.movie-card > img {
+  height: 60vh;
+}

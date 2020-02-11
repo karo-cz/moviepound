@@ -1,6 +1,6 @@
 <div class="search-results">
     {{#each searchResults}}
-    <div>
+    <div class="movie-card">
         <img src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}" alt="movie-poster">
         <h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
     </div>

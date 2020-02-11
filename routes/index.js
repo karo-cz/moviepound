@@ -21,7 +21,25 @@ router.get("/search", (req, res, next) => {
       console.log(response.data);
       // res.send(response.data.results);
       res.render("searchResults", {
-        searchResults: response.data.results
+        searchResults: response.data.results,
+        user: req.user
+      });
+    })
+    .catch(err => console.log(err));
+});
+
+router.get("/movies/:id", (req, res, next) => {
+  console.log("movie opened");
+
+  let movieId = req.params.id;
+  axios
+    .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdbKEY}`)
+    .then(response => {
+      console.log(response.data);
+      // res.send(response.data);
+      res.render("movie", {
+        user: req.user,
+        movieDetail: response.data
       });
     })
     .catch(err => console.log(err));
