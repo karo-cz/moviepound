@@ -54,3 +54,16 @@ nav > ul {
 .movie-card > img {
   height: 60vh;
 }
+
+.hashtags {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hashtag-suggestion {
+  margin: 1em;
+}
+
+.hashtag-clicked {
+  background-color: grey;
+}

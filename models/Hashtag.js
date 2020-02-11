@@ -1,7 +1,8 @@
 const mongoose = require("mongoose");
+
 const hashtagSchema = new mongoose.Schema({
   tag: { type: String, unique: true },
-  movies: [{ type: mongoose.Schema.Types.ObjectId, ref: "Movie" }],
+  movies: Object,
   deletable: {
     type: Boolean,
     default: "true"
