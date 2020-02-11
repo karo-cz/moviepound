@@ -82,11 +82,16 @@ moviesJSON.forEach(movie => {
                   });
                 })
 
-                .catch(err => console.log(err));
-            })
-            .catch(err => console.log(err));
-        })
-        .catch(err => console.log(err));
-    })
-    .catch(err => console.log(err));
-});
+//axios
+//     .get(
+//         `https://api.themoviedb.org/3/genre/movie/list?api_key=945edfeb81929f1fb50b3191c1073571&language=en-US`
+//     )
+//     .then(response => {
+//         // console.log(response.data.genres);
+//         response.data.genres.forEach(genre => {
+//             Hashtag.create({ tag: genre.name, deletable: false })
+//                 .then(response => console.log(response))
+//                 .catch(err => console.log(err));
+//         });
+//     })
+//     .catch(err => console.log(err));
