@@ -13,10 +13,11 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cookieParser());
 
-mongoose.set("useUnifiedTopology", true);
-
 mongoose
-  .connect("mongodb://localhost/moviepound", { useNewUrlParser: true })
+  .connect("mongodb://localhost/moviepound", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
   .then(response => {
     console.log("Connected to the DB! Yay!");
   })
@@ -46,6 +47,7 @@ app.use(
 
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
+const bcrypt = require("bcrypt");
 
 app.use(passport.initialize());
 app.use(passport.session());

@@ -15,7 +15,12 @@ const userSchema = new mongoose.Schema({
       type: mongoose.Schema.Types.ObjectId,
       ref: "Movie"
     }
-  ]
+  ],
+  role: {
+    type: String,
+    default: "user",
+    enum: ["moderator", "user"]
+  }
 });
 
 const User = mongoose.model("User", userSchema);
