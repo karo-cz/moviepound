@@ -1,13 +1,24 @@
 // import { response } from "express";
 
-let hashtag = document.getElementById("hashtags");
+let hashtag = document.getElementById("hashtag-input");
 let hashtagSuggestions;
+
+document
+  .querySelectorAll(".existing-hashtag")
+  .forEach(hashtag => (hashtag.onclick = upvoteHashtag));
+
+console.log(window.location.href.split("/"));
+
+let url = window.location.href.split("/");
+let movieId = url[url.length - 1];
+
+console.log(movieId);
 
 hashtag.onkeyup = searchForHashtag;
 
 function searchForHashtag() {
   let searchTerm = hashtag.value;
-  let hashtagBox = document.querySelector(".hashtags");
+  let hashtagBox = document.getElementById("suggestion-hashtags");
   console.log(searchTerm);
 
   if (searchTerm === "") {
@@ -27,6 +38,7 @@ function searchForHashtag() {
         hashtagSuggestion.innerText = hashtag.value;
         hashtagSuggestion.classList.add("hashtag-suggestion");
         hashtagSuggestion.classList.add("new-hashtag");
+        hashtagSuggestion.classList.add("hashtag");
         hashtagBox.appendChild(hashtagSuggestion);
         hashtagSuggestion.onclick = addHashtagToDatabas;
         return;
@@ -36,6 +48,7 @@ function searchForHashtag() {
         let hashtagSuggestion = document.createElement("p");
         hashtagSuggestion.innerText = hashtag.tag;
         hashtagSuggestion.classList.add("hashtag-suggestion");
+        hashtagSuggestion.classList.add("hashtag");
         hashtagBox.appendChild(hashtagSuggestion);
         hashtagSuggestion.onclick = addHashtagToMovie;
       });
@@ -50,26 +63,53 @@ function searchForHashtag() {
 }
 
 function addHashtagToMovie(event) {
-  event.target.classList.toggle("hashtag-clicked");
-  console.log("Hashtag set!", event.target);
+  // empty the hashtag input, move hashtag to added hashtags
+  hashtag.value = "";
+  let addedHashtag = document.createElement("p");
+  addedHashtag.innerText = event.target.innerText;
+  document.getElementById("suggestion-hashtags").removeChild(event.target);
+  document.querySelector(".hashtags").appendChild(addedHashtag);
+  addedHashtag.classList.add("hashtag");
+  addedHashtag.classList.add("existing-hashtag");
 
-  if (event.target.classList.contains("hashtag-clicked")) {
-    console.log("hashtag-clicked");
-    //   axios.patch();
-    // if hashtag is clicked, add user id to the property of the movieId
-  } else {
-    console.log("hashtag-unclicked");
-  }
+  axios
+    .patch(`http://localhost:3000/hashtag?hashtag=${addedHashtag.innerText}`, {
+      movieId: movieId
+    })
+    .then(response => {
+      console.log(response.data);
+      addedHashtag.onclick = upvoteHashtag;
+    })
+    .catch(err => console.log(err));
+
+  //outsource to another onclick function
+  //when hashtag is clicked, check if user is part of the hashtag movie user array, if yes, remove, if not, add
 }
 
 function addHashtagToDatabas(event) {
-  event.target.classList.toggle("hashtag-clicked");
   console.log("adding new Hashtag to Database");
   axios
     .post("http://localhost:3000/hashtag", { newTag: event.target.innerText })
     .then(response => {
-      console.log(response);
-      //   addHashtagToMovie(event);
+      console.log(response.data);
+
+      //add movie to database
+
+      addHashtagToMovie(event);
     })
     .catch();
+}
+
+function upvoteHashtag(event) {
+  let hashtagValue = event.target.innerText;
+  console.log("hashtag-upvoted: ", hashtagValue);
+
+  axios
+    .patch(`http://localhost:3000/hashtag?hashtag=${hashtagValue}`, {
+      movieId: movieId
+    })
+    .then(response => {
+      console.log("movie voted");
+    })
+    .catch(err => console.log(err));
 }

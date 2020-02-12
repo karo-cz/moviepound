@@ -78,8 +78,8 @@ moviesJSON.forEach(movie => {
                     Hashtag.updateOne(
                       { tag: genre.name.toLowerCase() },
                       {
-                        movies: {
-                          [movieDocument._id]: [1234]
+                        $push: {
+                          [`movies.${movieDocument.omdbId}`]: 1234
                         }
                       }
                     ).then(response => {
