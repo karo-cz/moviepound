@@ -32,11 +32,6 @@ router.get("/search", (req, res, next) => {
 });
 
 router.get("/movies/:id", (req, res, next) => {
-<<<<<<< HEAD
-  //console.log("movie opened");
-
-=======
->>>>>>> 3746d0873c89e70c949857d6cb5d6e7c0077660f
   let movieId = req.params.id;
   let movieHashtags = [];
 
@@ -53,6 +48,7 @@ router.get("/movies/:id", (req, res, next) => {
   axios
     .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdbKEY}`)
     .then(response => {
+      console.log(response.data);
       res.render("movie", {
         user: req.user,
         movieDetail: response.data,

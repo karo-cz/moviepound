@@ -3,8 +3,13 @@
         <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{movieDetail.poster_path}}" alt="movie-poster">
     </div>
     <div class="movie-details">
-        <h3>{{movieDetail.title}}</h3>
-        <p>{{movieDetail.overview}}</p>
+        <h3 class="title">{{movieDetail.title}}</h3>
+        <p class="imdb-id">{{movieDetail.imdb_id}}</p>
+        <p class="release-date">{{movieDetail.release_date}}</p>
+        <p class="tmdb-id">{{movieDetail.id}}</p>
+        <p class="overview">{{movieDetail.overview}}</p>
+        <button class="btn btn-light movielog">I've seen it</button>
+        <button class="btn btn-dark wishlist">Add for later</button>
         <div id="existing-hashtags">
             <p>Here are the existing hashtags:</p>
             <div class="hashtags">
@@ -26,5 +31,5 @@
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
-
+<script src="javascript/randomMovie.js"></script>
 <script src="/javascript/hashtagHandler.js"></script>
