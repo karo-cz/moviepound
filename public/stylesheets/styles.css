@@ -92,3 +92,16 @@ nav > ul {
 .movie-details {
   width: 50vw;
 }
+
+.watch-later,
+.movie-log {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
