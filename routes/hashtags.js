@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const Hashtag = require("../models/Hashtag");
+const axios = require("axios");
+const tmdbKEY = process.env.KEY;
 
 router.get("/hashtag", (req, res, next) => {
   //   console.log("Query to hashtags made");
@@ -10,8 +12,44 @@ router.get("/hashtag", (req, res, next) => {
 
   Hashtag.find({ tag: { $regex: regex } })
     .then(hashtagDocment => {
-      //   console.log(hashtagDocment);
+      console.log(hashtagDocment);
       res.send(hashtagDocment);
+    })
+    .catch(err => console.log(err));
+});
+
+router.get("/hashtag/:id", (req, res, next) => {
+  console.log("hashtag opened");
+  console.log(req.params.id);
+  Hashtag.findById(req.params.id)
+    .then(hashTagDocument => {
+      console.log(hashTagDocument);
+      let movies = [];
+
+      for (movie in hashTagDocument.movies) {
+        console.log(movie);
+        let result = axios.get(
+          `https://api.themoviedb.org/3/movie/${movie}?api_key=${tmdbKEY}`
+        );
+        movies.push(result);
+      }
+
+      Promise.all(movies)
+        .then(responses => {
+          let cleanMovies = [];
+          responses.forEach(response => {
+            // console.log(response.data);
+            cleanMovies.push(response.data);
+          });
+          res.render("hashtag", {
+            hashtag: hashTagDocument,
+            movies: cleanMovies,
+            user: req.user
+            // user: req.user
+          });
+        })
+        .catch(err => console.log(err));
+      // console.log(movies);
     })
     .catch(err => console.log(err));
 });
@@ -62,5 +100,18 @@ router.patch("/hashtag", (req, res, next) => {
 //     })
 //     .catch(err => console.log(err));
 // });
+
+router.get("/hashtags", (req, res, next) => {
+  console.log("search called");
+  console.log(req.query.hashtag);
+
+  let regex = new RegExp(`^${req.query.hashtag}`);
+  Hashtag.find({ tag: { $regex: regex } })
+    .then(response => {
+      res.render("searchResults", { hashtagResults: response, user: req.user });
+      console.log(response);
+    })
+    .catch(err => console.log(err));
+});
 
 module.exports = router;

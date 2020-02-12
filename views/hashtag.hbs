@@ -1,0 +1,11 @@
+<h1>
+    {{hashtag.tag}}
+</h1>
+
+<div>
+    {{#each movies}}
+    <a href="/movies/{{this.id}}">
+        <p>{{this.title}}</p>
+    </a>
+    {{/each}}
+</div>
