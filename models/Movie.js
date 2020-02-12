@@ -6,7 +6,8 @@ const movieSchema = new mongoose.Schema({
   releaseDate: String,
   genre: Array,
   image: String,
-  trailer: String
+  trailer: String,
+  tmdb_id: Number
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

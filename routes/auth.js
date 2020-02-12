@@ -34,15 +34,15 @@ router.post("/signup", (req, res, next) => {
   const { username, password } = req.body;
 
   if (!username) {
-    res.render("signup.hbs", {
-      errorMessage: "Please provide username"
+    res.render("signup", {
+      message: "Please provide username"
     });
     return;
   }
 
   if (password.length < 8) {
-    res.render("signup.hbs", {
-      errorMessage: "Password needs to be at least 8 characters long"
+    res.render("signup", {
+      message: "Password needs to be at least 8 characters long"
     });
     return;
   }
@@ -50,8 +50,8 @@ router.post("/signup", (req, res, next) => {
   User.findOne({ username: username })
     .then(user => {
       if (user) {
-        res.render("signup.hbs", {
-          errorMessage: "Username already taken"
+        res.render("signup", {
+          message: "Username already taken"
         });
         return;
       }

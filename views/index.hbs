@@ -22,6 +22,20 @@
                     <h5 class="movie-title card-title">Fishing...</h5>
                     <p class="movie-overview card-text"></p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+                    {{#if user}}
+
+
+                    <a class="see-more" href=""><button type="button" class="btn btn-outline-secondary">See
+                            more</button></a>
+                    {{/if}}
+                    <button type="button" class="btn btn-secondary next-movie">Next movie</button>
+
+                    {{!-- <form action="" method="post"> --}}
+
+                    <button class="btn btn-light movielog">I've seen it</button>
+
+                    {{!-- </form> --}}
                 </div>
             </div>
         </div>
