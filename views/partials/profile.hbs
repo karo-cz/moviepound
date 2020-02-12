@@ -1,25 +1,43 @@
+<h2>Movies you've seen</h2>
 <div class="movie-log">
-    {{#each  movieLog}}
-    <div class="card" style="width: 18rem;">
+    {{#if user.movieLog}}
+    {{#each  user.movieLog}}
+    <div class="movielog-card card" style="width: 10.25rem;">
         <img src="https://image.tmdb.org/t/p/w1280{{this.image}}" class="card-img-top" alt="{{this.title}}">
         <div class="card-body">
-            <h5 class="card-title">{{original_title}}</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h7 class="card-title">{{this.title}}</h7>
+            {{!-- <p class="card-text">here goes list of oyou hashtags</p> --}}
+            <a href='movies/{{this.tmdb_id}}' class="btn btn-secondary">See more</a>
+            <button value={{this._id}} class="btn btn-light remove-log-button">Remove</button>
         </div>
     </div>
     {{/each}}
+    {{else}}
+    <div class="empty-log">
+        <p>There is nothing here</p>
+    </div>
+    {{/if}}
 </div>
 
+<h2>For later</h2>
 <div class="watch-later">
-    <div class="card" style="width: 18rem;">
-        <img src="..." class="card-img-top" alt="...">
+    {{#if user.wishList}}
+    {{#each  user.wishList}}
+    <div class="wishlist-card card" style="width: 10.25rem;">
+        <img src="https://image.tmdb.org/t/p/w1280{{this.image}}" class="card-img-top" alt="{{this.title}}">
         <div class="card-body">
-            <h5 class="card-title">Card title</h5>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-                content.</p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
+            <h7 class="card-title">{{this.title}}</h7>
+            {{!-- <p class="card-text">here goes list of oyou hashtags</p> --}}
+            <a href='movies/{{this.tmdb_id}}' class="btn btn-secondary">See more</a>
+            <button value={{this._id}} class="btn btn-light remove-wishlist-button">Remove</button>
         </div>
     </div>
+    {{/each}}
+    {{else}}
+    <div class="empty-log">
+        <p>There is nothing here</p>
+    </div>
+    {{/if}}
 </div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+<script src="javascript/profileManage.js"></script>
