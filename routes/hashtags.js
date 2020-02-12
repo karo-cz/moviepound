@@ -63,4 +63,15 @@ router.patch("/hashtag", (req, res, next) => {
 //     .catch(err => console.log(err));
 // });
 
+router.get("/hashtags", (req, res, next) => {
+  console.log("search called");
+con
+  Hashtag.find({ tag: req.query.hashtag })
+    .then(response => {
+      res.render("searchResults", { searchResults: ["123"], user: req.user });
+      console.log(response);
+    })
+    .catch(err => console.log(err));
+});
+
 module.exports = router;
