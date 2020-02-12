@@ -28,13 +28,15 @@ nav > ul {
   padding: 1em;
 }
 
-#serarch-form {
+#search-form {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 1em;
 }
 
 #search {
-  width: 90vw;
+  width: 95%;
 }
 
 .search-results {
@@ -51,6 +53,42 @@ nav > ul {
   align-items: center;
 }
 
-.movie-card > img {
-  height: 60vh;
+.movie-image {
+  height: 80%;
+  width: 80%;
+}
+
+.movie-image-box {
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+#hashtags {
+  width: 100%;
+}
+
+.hashtags {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.hashtag-suggestion {
+  margin: 0 1em;
+}
+.new-hashtag {
+  color: grey;
+}
+.hashtag-clicked {
+  background-color: grey;
+}
+
+.movie-detail {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.movie-details {
+  width: 50vw;
 }

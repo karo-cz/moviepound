@@ -1,8 +1,12 @@
 <div class="search-results">
+    {{#if searchResults}}
     {{#each searchResults}}
     <div class="movie-card">
-        <img src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}" alt="movie-poster">
+        <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}" alt="movie-poster">
         <h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
     </div>
     {{/each}}
+    {{else}}
+    <h3>Sorry, no movie found ¯\_(ツ)_/¯</h3>
+    {{/if}}
 </div>

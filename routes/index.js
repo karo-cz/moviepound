@@ -37,7 +37,7 @@ router.get("/movies/:id", (req, res, next) => {
   axios
     .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdbKEY}`)
     .then(response => {
-      console.log(response.data);
+      // console.log(response.data);
       // res.send(response.data);
       res.render("movie", {
         user: req.user,

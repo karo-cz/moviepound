@@ -1,5 +1,23 @@
-<div class="movie-card">
-    <img src="https://image.tmdb.org/t/p/w1280{{movieDetail.poster_path}}" alt="movie-poster">
-    <h3><a href="/movies/{{movieDetail.id}}">{{movieDetail.title}}</a></h3>
-    <input type="text" id="hashtags">
+<div class="movie-detail">
+    <div class="movie-image-box">
+        <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{movieDetail.poster_path}}" alt="movie-poster">
+    </div>
+    <div class="movie-details">
+        <h3>{{movieDetail.title}}</h3>
+        <p>{{movieDetail.overview}}</p>
+        <div id="existing-hashtags">
+            <p>Here are the existing hashtags: </p>
+
+        </div>
+
+        <p>Add new hashtags: </p>
+        <input type="text" id="hashtags">
+        <div class="hashtags">
+        </div>
+    </div>
 </div>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+<script src="/javascript/hashtagHandler.js"></script>
