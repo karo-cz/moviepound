@@ -11,7 +11,7 @@ router.get("/", (req, res, next) => {
   res.render("index", { user: req.user });
 });
 
-router.get("/search", (req, res, next) => {
+router.get("/searchMovies", (req, res, next) => {
   //console.log("Searched for a movie");
   // console.log(req.query.search);
   let searchQuery = req.query.search;
@@ -24,7 +24,7 @@ router.get("/search", (req, res, next) => {
       console.log(response.data);
       // res.send(response.data.results);
       res.render("searchResults", {
-        searchResults: response.data.results,
+        movieResults: response.data.results,
         user: req.user
       });
     })

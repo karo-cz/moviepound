@@ -26,8 +26,12 @@
         </ul>
     </nav>
     {{#if user}}
-    <form id="search-form" action="/search" method="get">
+    <form id="search-form" action="/searchMovies" method="get">
         <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
+        <button type="submit">Search</button>
+    </form>
+    <form id="search-form" action="/hashtags" method="get">
+        <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag" id="hashtag-search">
         <button type="submit">Search</button>
     </form>
     {{/if}}

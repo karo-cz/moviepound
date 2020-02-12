@@ -35,7 +35,8 @@ nav > ul {
   margin: 1em;
 }
 
-#search {
+#search,
+#hashtag-search {
   width: 95%;
 }
 
