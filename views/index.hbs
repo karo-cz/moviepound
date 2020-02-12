@@ -16,9 +16,9 @@
                     <p class="movie-overview card-text"></p>
                     <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
+
+
                     {{#if user}}
-
-
                     <a class="see-more" href=""><button type="button" class="btn btn-outline-secondary">See
                             more</button></a>
                     {{/if}}
@@ -26,7 +26,10 @@
 
                     {{!-- <form action="" method="post"> --}}
 
+                    {{#if user}}
                     <button class="btn btn-light movielog">I've seen it</button>
+
+                    {{/if}}
 
                     {{!-- </form> --}}
                 </div>

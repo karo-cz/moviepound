@@ -65,18 +65,32 @@ nav > ul {
   justify-content: center;
 }
 
-#hashtags {
+#hashtag-input {
   width: 100%;
+}
+
+#suggestion-hashtags {
+  margin: top;
 }
 
 .hashtags {
   display: flex;
   flex-flow: row wrap;
+  margin: 1em 0;
 }
 
-.hashtag-suggestion {
-  margin: 0 1em;
+.hashtag {
+  border: 1px solid grey;
+  border-radius: 0.5em;
+  margin: 0.2em 0.5em 0.2em 0;
+  padding: 0.2em 0.5em;
 }
+
+.hashtag:active {
+  background-color: lightcoral;
+  color: white;
+}
+
 .new-hashtag {
   color: grey;
 }

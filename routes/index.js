@@ -4,6 +4,7 @@ const axios = require("axios");
 const tmdbKEY = process.env.KEY;
 const Movie = require("../models/Movie");
 const User = require("../models/User");
+const Hashtag = require("../models/Hashtag");
 
 router.get("/", (req, res, next) => {
   console.log("GET request to index.js made");
@@ -31,17 +32,26 @@ router.get("/search", (req, res, next) => {
 });
 
 router.get("/movies/:id", (req, res, next) => {
-  console.log("movie opened");
-
   let movieId = req.params.id;
+  let movieHashtags = [];
+
+  Hashtag.find({})
+    .then(hashtagList => {
+      hashtagList.forEach(hashtag => {
+        if (Object.keys(hashtag.movies).includes(`${movieId}`)) {
+          movieHashtags.push(hashtag.tag);
+        }
+      });
+    })
+    .catch(err => console.log(err));
+
   axios
     .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdbKEY}`)
     .then(response => {
-      // console.log(response.data);
-      // res.send(response.data);
       res.render("movie", {
         user: req.user,
-        movieDetail: response.data
+        movieDetail: response.data,
+        hashtags: movieHashtags
       });
     })
     .catch(err => console.log(err));

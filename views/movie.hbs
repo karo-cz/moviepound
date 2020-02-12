@@ -6,13 +6,20 @@
         <h3>{{movieDetail.title}}</h3>
         <p>{{movieDetail.overview}}</p>
         <div id="existing-hashtags">
-            <p>Here are the existing hashtags: </p>
-
+            <p>Here are the existing hashtags:</p>
+            <div class="hashtags">
+                {{#each hashtags}}
+                <p class="hashtag existing-hashtag">{{this}}</p>
+                {{/each}}
+            </div>
         </div>
 
         <p>Add new hashtags: </p>
-        <input type="text" id="hashtags">
-        <div class="hashtags">
+        {{!-- <form id="hashtag-form"> --}}
+        <input type="text" id="hashtag-input">
+        {{!-- </form> --}}
+
+        <div id="suggestion-hashtags" class="hashtags">
         </div>
     </div>
 </div>
