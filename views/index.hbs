@@ -1,44 +1,45 @@
-<div class="movie-list">
+<div class="wrapper">
+    <div class="container">
+        <div class="trailer-container">
+            <iframe class="trailer" width="720" height="600" src="" frameborder="0"
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+            </iframe>
+        </div>
+        <div class="movie-info">
 
-    <div class="card mb-3">
-        <div class="row no-gutters">
-            <div class="col-md-8">
-                <iframe class="trailer card-img" width="720" height="600" src="" frameborder="0"
-                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
+            <div class="title">
+
+                <h3 class="movie-title">Fishing...</h3>
+                <p class="release-date"><small></small></p>
+                <a class="see-more" href=""><button type="button" class="btn-see-more"> see more</button></a>
             </div>
-            <div class="col-md-4">
-                <div class="card-body">
-                    <h5 class="movie-title card-title">Fishing...</h5>
-                    <p class="movie-overview card-text"></p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
 
 
 
-                    {{#if user}}
-                    <a class="see-more" href=""><button type="button" class="btn btn-outline-secondary">See
-                            more</button></a>
-                    {{/if}}
-                    <button type="button" class="btn btn-secondary next-movie">Next movie</button>
+            {{#if user}}
+            <div class="user-buttons">
 
-                    {{!-- <form action="" method="post"> --}}
 
-                    {{#if user}}
-                    <button class="btn btn-light movielog">I've seen it</button>
-                    <button class="btn btn-dark wishlist">Add for later</button>
 
-                    {{/if}}
+                <div class="log-buttons">
 
-                    {{!-- </form> --}}
+                    <button class="btn-add-log"> add to log</button>
+                    <button class="btn-wishlist"> add to wishlist</button>
                 </div>
             </div>
+
+            {{/if}}
+        </div>
+        <div class="next">
+            <button type="button" class="btn-next-movie">#nextmovie</button>
         </div>
     </div>
-
-
-
-
 </div>
+
+
+
+
+
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
 <script src="javascript/randomMovie.js"></script>

@@ -34,10 +34,15 @@ async function getAMovie() {
     // Display title
     document.querySelector(".movie-title").innerText =
       axiosCall.data.original_title;
-    console.log("AFTER");
+    console.log(axiosCall);
+
     // Display description
     // document.querySelector(".movie-overview").innerText =
     //   axiosCall.data.overview;
+
+    //Display release date
+    document.querySelector(".release-date").innerText =
+      axiosCall.data.release_date;
 
     // Display trailer
     document
@@ -56,8 +61,8 @@ async function getAMovie() {
     }
 
     currentMovieId = randomMovieId;
-    //CREATE MOVIE OBJECT
 
+    //CREATE MOVIE OBJECT
     currentMovie.title = axiosCall.data.original_title;
     currentMovie.imdbId = axiosCall.data.imdb_id;
     currentMovie.releaseDate = axiosCall.data.release_date;
@@ -67,17 +72,14 @@ async function getAMovie() {
     currentMovie.tmdb_id = randomMovieId;
   } catch (error) {
     if (error) return getAMovie();
-    // console.log(error);
   }
 }
 
 getAMovie();
 
-//console.log(currentMovieId);
-
 // Button NEXT MOVIE
 
-document.querySelector(".next-movie").onclick = getAMovie;
+document.querySelector(".btn-next-movie").onclick = getAMovie;
 
 function addMovieLog() {
   axios
@@ -85,15 +87,15 @@ function addMovieLog() {
       currentMovie
     })
     .then(response => {
-      document.querySelector(".movielog").innerText = "Added to your log";
+      document.querySelector(".btn-add-log").innerText = "Added to your log";
     })
     .catch(err => {
       console.log(err);
     });
 }
 
-if (document.querySelector(".movielog")) {
-  document.querySelector(".movielog").onclick = addMovieLog;
+if (document.querySelector(".btn-add-log")) {
+  document.querySelector(".btn-add-log").onclick = addMovieLog;
 }
 
 function addWishlist() {
@@ -102,12 +104,12 @@ function addWishlist() {
       currentMovie
     })
     .then(response => {
-      document.querySelector(".wishlist").innerText = "Added for later";
+      document.querySelector(".btn-wishlist").innerText = "Added for later";
     })
     .catch(err => {
       console.log(err);
     });
 }
-if (document.querySelector(".wishlist")) {
-  document.querySelector(".wishlist").onclick = addWishlist;
+if (document.querySelector(".btn-wishlist")) {
+  document.querySelector(".btn-wishlist").onclick = addWishlist;
 }

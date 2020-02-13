@@ -26,8 +26,61 @@
 
         <div id="suggestion-hashtags" class="hashtags">
         </div>
+
+
     </div>
 </div>
+
+<script>
+
+    const allMovieDetails = {{{ movieDetailJSON }}};
+
+    let currentMovie = {
+        title: allMovieDetails.original_title,
+        imdbId: allMovieDetails.imdb_id,
+        releaseDate: allMovieDetails.release_date,
+        image: allMovieDetails.poster_path,
+        trailer: allMovieDetails.video,
+        tmdb_id: allMovieDetails.id
+
+    }
+
+
+    console.log("current movie", currentMovie);
+
+    function addMovieLog() {
+        axios
+            .post("http://localhost:3000/movielog", {
+                currentMovie
+            })
+            .then(response => {
+                console.log("added to log")
+                document.querySelector(".movielog").innerText = "Added to your log";
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    document.querySelector(".movielog").onclick = addMovieLog;
+
+    function addWishlist() {
+        axios
+            .post("http://localhost:3000/wishlist", {
+                currentMovie
+            })
+            .then(response => {
+                console.log("added to wishlist")
+                document.querySelector(".wishlist").innerText = "Added for later";
+            })
+            .catch(err => {
+                console.log(err);
+            });
+    }
+
+    document.querySelector(".wishlist").onclick = addWishlist;
+
+</script>
 
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
