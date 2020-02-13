@@ -10,7 +10,7 @@
 
 // function addMovieLog() {
 //     axios
-//         .post("http://localhost:3000/movielog", {
+//         .post("/movielog", {
 //             currentMovie
 //         })
 //         .then(response => {
@@ -25,7 +25,7 @@
 
 // function addWishlist() {
 //     axios
-//         .post("http://localhost:3000/wishlist", {
+//         .post("/wishlist", {
 //             currentMovie
 //         })
 //         .then(response => {

@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
-const tmdbKEY = process.env.KEY;
+const tmdbKEY = process.env.NORA_KEY;
 const Movie = require("../models/Movie");
 const User = require("../models/User");
 const Hashtag = require("../models/Hashtag");
@@ -37,9 +37,14 @@ router.get("/movies/:id", (req, res, next) => {
 
   Hashtag.find({})
     .then(hashtagList => {
+      if (hashtagList.length === 0) {
+        return;
+      }
+      // console.log(hashtagList);
       hashtagList.forEach(hashtag => {
         if (Object.keys(hashtag.movies).includes(`${movieId}`)) {
           movieHashtags.push(hashtag.tag);
+          console.log;
         }
       });
     })

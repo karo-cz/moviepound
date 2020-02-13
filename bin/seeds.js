@@ -6,10 +6,10 @@ const moviesJSON = require("../moviesJSON.json");
 
 const axios = require("axios");
 
-const tmdbKEY = process.env.KEY;
+const tmdbKEY = process.env.NORA_KEY;
 
 mongoose
-  .connect("mongodb://localhost:27017/moviepound", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/moviepound", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })
@@ -30,7 +30,7 @@ axios
   .then(response => {
     // console.log(response.data.genres);
     response.data.genres.forEach(genre => {
-      Hashtag.create({ tag: genre.name.toLowerCase(), deletable: false })
+      Hashtag.create({ tag: "#" + genre.name.toLowerCase(), deletable: false })
         .then(response => console.log(response))
         .catch(err => console.log(err));
     });
@@ -76,7 +76,7 @@ moviesJSON.forEach(movie => {
                     console.log(genre.name);
 
                     Hashtag.updateOne(
-                      { tag: genre.name.toLowerCase() },
+                      { tag: "#" + genre.name.toLowerCase() },
                       {
                         $push: {
                           [`movies.${movieDocument.omdbId}`]: 1234

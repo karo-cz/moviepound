@@ -1,5 +1,10 @@
+// require("dotenv").config();
+
 let currentMovieId;
 let currentMovie = {};
+
+// const tmdbKEY = process.env.KARO_KEY;
+// console.log(tmdbKEY);
 
 let loading = true;
 

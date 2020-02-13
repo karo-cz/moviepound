@@ -2,12 +2,12 @@ const express = require("express");
 const router = express.Router();
 const Hashtag = require("../models/Hashtag");
 const axios = require("axios");
-const tmdbKEY = process.env.KEY;
+const tmdbKEY = process.env.NORA_KEY;
 
 router.get("/hashtag", (req, res, next) => {
   //   console.log("Query to hashtags made");
   //   console.log(req.query.hashtag);
-  let regex = new RegExp(`^${req.query.hashtag}`);
+  let regex = new RegExp(`^#${req.query.hashtag}`);
   console.log(regex);
 
   Hashtag.find({ tag: { $regex: regex } })
@@ -58,7 +58,7 @@ router.post("/hashtag", (req, res, next) => {
   console.log("posted a new hashtag");
   console.log(req.body.newTag);
 
-  Hashtag.create({ tag: req.body.newTag })
+  Hashtag.create({ tag: "#" + req.body.newTag, movies: {} })
     .then(hashtagDocument => {
       res.send(hashtagDocument);
     })
@@ -70,7 +70,7 @@ router.patch("/hashtag", (req, res, next) => {
   console.log(req.body);
   console.log(req.query.hashtag);
   Hashtag.updateOne(
-    { tag: req.query.hashtag },
+    { tag: "#" + req.query.hashtag },
     {
       $push: {
         [`movies.${req.body.movieId}`]: req.user._id
@@ -105,7 +105,7 @@ router.get("/hashtags", (req, res, next) => {
   console.log("search called");
   console.log(req.query.hashtag);
 
-  let regex = new RegExp(`^${req.query.hashtag}`);
+  let regex = new RegExp(`^#${req.query.hashtag}`);
   Hashtag.find({ tag: { $regex: regex } })
     .then(response => {
       res.render("searchResults", { hashtagResults: response, user: req.user });
