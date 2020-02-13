@@ -32,9 +32,9 @@ async function getAMovie() {
       axiosCall.data.original_title;
     console.log(axiosCall);
 
-    // Display description
+    // Display tagline
     // document.querySelector(".movie-overview").innerText =
-    //   axiosCall.data.overview;
+    //   axiosCall.data.tagline;
 
     //Display release date
     document.querySelector(".release-date").innerText =

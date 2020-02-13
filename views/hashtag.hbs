@@ -1,11 +1,16 @@
-<h1 class="hashtag">
-    {{hashtag.tag}}
-</h1>
+<div class="wrapper">
+    <div class="container hashtag-movies">
+        <h1 class="hashtag">
+            {{hashtag.tag}}
+        </h1>
 
-<div class="search-results">
-    {{#each movies}}
-    <a href="/movies/{{this.id}}">
-        <p class="movie-titel">{{this.title}}</p>
-    </a>
-    {{/each}}
+        <div class="search-results">
+            {{#each movies}}
+            <a href="/movies/{{this.id}}">
+                <p class="movie-titel">{{this.title}}</p>
+            </a>
+            {{/each}}
+        </div>
+
+    </div>
 </div>

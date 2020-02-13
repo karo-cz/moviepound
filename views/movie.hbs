@@ -1,35 +1,51 @@
-<div class="movie-detail">
-    <div class="movie-image-box">
-        <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{movieDetail.poster_path}}" alt="movie-poster">
-    </div>
-    <div class="movie-details">
-        <h3 class="title">{{movieDetail.title}}</h3>
-        <p class="imdb-id">{{movieDetail.imdb_id}}</p>
-        <p class="release-date">{{movieDetail.release_date}}</p>
-        <p class="tmdb-id">{{movieDetail.id}}</p>
-        <p class="overview">{{movieDetail.overview}}</p>
-        <button class="btn btn-light movielog">I've seen it</button>
-        <button class="btn btn-dark wishlist">Add for later</button>
-        <div id="existing-hashtags">
-            <p>Here are the existing hashtags:</p>
-            <div class="hashtags">
-                {{#each hashtags}}
-                <p class="hashtag existing-hashtag">{{this}}</p>
-                {{/each}}
+<div class="wrapper">
+    <div class="container">
+        <div class="movie-details">
+            <div class="movie-detail-box">
+                <div class="movie-detail-image-box">
+
+                    <img class="movie-detail-image" src="https://image.tmdb.org/t/p/w1280{{movieDetail.poster_path}}"
+                        alt="movie-poster">
+                </div>
+                <div class="log-buttons-movie-detail">
+                    <button class="btn-add-log-MD" title="Add to your movies"><img src="/images/checkbox.png"
+                            alt="checkbox-image"></button>
+                    <button class="btn-wishlist-MD" title="Add to watch later"><img src="/images/add-to-wishlist.png"
+                            alt="add-image"></button>
+                </div>
+            </div>
+            <div class="movie-detail-text">
+                <div class="movie-text">
+                    <h2 class="title-MD">{{movieDetail.title}}</h2>
+                    <p class="release-date">{{movieDetail.release_date}}</p>
+                    <p class="overview">{{movieDetail.overview}}</p>
+                </div>
+
+                <div id="existing-hashtags">
+                    <p>USERS' HASHTAGS</p>
+                    <div class="hashtags">
+                        {{#each hashtags}}
+                        <p class="hashtag existing-hashtag">{{this}}</p>
+                        {{/each}}
+                    </div>
+                </div>
+                <div class="new-hashtags">
+
+                    <p>Add new hashtags: </p>
+                    {{!-- <form id="hashtag-form"> --}}
+                    <input type="text" id="hashtag-input" autocomplete="off">
+                    {{!-- </form> --}}
+
+                    <div id="suggestion-hashtags" class="hashtags">
+                    </div>
+                </div>
+
+
             </div>
         </div>
-
-        <p>Add new hashtags: </p>
-        {{!-- <form id="hashtag-form"> --}}
-        <input type="text" id="hashtag-input" autocomplete="off">
-        {{!-- </form> --}}
-
-        <div id="suggestion-hashtags" class="hashtags">
-        </div>
-
-
     </div>
 </div>
+
 
 <script>
 

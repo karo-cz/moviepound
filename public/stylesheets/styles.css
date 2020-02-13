@@ -16,7 +16,7 @@ body {
 
 a {
   text-decoration: none;
-  color: black;
+  color: #444444;
 }
 
 /***************NAVBAR**************************************/
@@ -157,7 +157,6 @@ a {
   cursor: pointer;
   overflow: hidden;
   outline: none;
-  width: 20%;
   margin-top: 10%;
 }
 
@@ -175,7 +174,6 @@ a {
   height: 100%;
   width: 40%;
   background-color: Transparent;
-  background-repeat: no-repeat;
   border: none;
   cursor: pointer;
   overflow: hidden;
@@ -184,7 +182,7 @@ a {
 
 .btn-add-log img,
 .btn-wishlist img {
-  height: 100%;
+  height: inherit;
 }
 
 .user-buttons {
@@ -207,30 +205,37 @@ a {
 /************************************************************/
 
 /**************** NORA ************************/
+
+/***********************SEARCH RESULT**************/
+
+.search-results {
+  height: 90%;
+  overflow: auto;
+}
+
 .movie-card {
   display: flex;
-  flex-flow: column;
-  margin: 0.5em;
-  width: 30vw;
+  flex-direction: column;
+  align-content: center;
   align-items: center;
+  margin: 0.5em;
+  width: 20vw;
+  text-align: center;
 }
 
-.movie-image {
-  height: 80%;
-  width: 80%;
-}
-
-.movie-image-box {
-  width: 30vw;
+/*******************HASHTAG SEARCH RESULT*********/
+.hashtag-movies {
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  flex-direction: column;
 }
 
 #hashtag-input {
-  width: 100%;
+  width: 80%;
+  height: 3em;
+  border: none;
 }
 
+/***************************STRICTLY HASHTAGS*******/
 #suggestion-hashtags {
   margin: top;
 }
@@ -243,10 +248,10 @@ a {
 
 .hashtag {
   border-radius: 0.5em;
-  margin: 0.2em 0.5em 0.2em 0;
   padding: 0.2em 0.5em;
   background-color: rgb(216, 30, 91);
   color: white;
+  font-size: 2em;
 }
 
 .hashtag:active {
@@ -260,26 +265,95 @@ a {
 .hashtag-clicked {
   background-color: grey;
 }
-
-.movie-detail {
-  display: flex;
-  flex-flow: row wrap;
-  background-color: rgba(212, 212, 212, 0.9);
-}
-
-.movie-details {
-  width: 50vw;
-}
-
 .hashtag-results > a:hover {
   text-decoration: none;
 }
 
 .movie-titel {
-  color: white;
+  color: #444444;
   padding: 0.5em;
+  font-size: 2em;
 }
 
 .movie-titel:hover {
   text-decoration: none;
 }
+/*********************************/
+/*MOVIE DETAILS*/
+/**********************************/
+
+.movie-details {
+  height: 100%;
+  display: flex;
+}
+
+.movie-detail-box {
+  height: 100%;
+}
+.movie-detail-image-box {
+  height: 70%;
+}
+.movie-detail-image {
+  height: 100%;
+}
+
+.log-buttons-movie-detail {
+  height: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.btn-wishlist-MD,
+.btn-add-log-MD {
+  height: 60%;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.btn-wishlist-MD img,
+.btn-add-log-MD img {
+  height: 100%;
+}
+
+.movie-detail-text {
+  padding: 0 3%;
+}
+
+.movie-text {
+  border-top: 1px solid #444444;
+  border-bottom: 1px solid #444444;
+}
+
+.title-MD {
+  font-size: 2.25em;
+  font-weight: bold;
+}
+.overview {
+  font-size: 1.5em;
+  padding: 1% 0 3%;
+}
+
+#existing-hashtags,
+.new-hashtags {
+  font-size: 1.25em;
+}
+
+#existing-hashtags {
+  font-weight: bold;
+}
+
+/**************************************/
+.movie-image {
+  height: 100%;
+  width: 80%;
+}
+
+/* .movie-image-box {
+  width: 30vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+} */

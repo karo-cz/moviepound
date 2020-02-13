@@ -1,29 +1,40 @@
-<div class="search-results">
-    {{#if movieResults}}
-    {{#each movieResults}}
-    <div class="movie-card">
-        <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}" alt="movie-poster">
-        <a href="/movies/{{this.id}}">
-            <h3 class="movie-titel">{{this.title}}</h3>
-        </a>
+<div class="wrapper">
+    <div class="container">
+
+
+        <div class="search-results">
+            {{#if movieResults}}
+            {{#each movieResults}}
+            <div class="movie-card">
+                <a href="/movies/{{this.id}}">
+                    <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}"
+                        alt="movie-poster">
+                </a>
+                <a href="/movies/{{this.id}}">
+                    <h3 class="movie-titel">{{this.title}}</h3>
+                </a>
+            </div>
+            {{/each}}
+
+            {{/if}}
+
+
+
+            {{#if hashtagResults}}
+
+            {{#each hashtagResults}}
+            <div class="hashtag-results">
+                <a class="hashtag-link" href="/hashtag/{{this._id}}">
+                    <p class="hashtag">{{this.tag}}</p>
+                </a>
+            </div>
+            {{/each}}
+
+            {{/if}}
+            {{#unless movieResults}}
+            <h3>Sorry, nothing found ¯\_(ツ)_/¯</h3>
+            {{/unless}}
+
+        </div>
     </div>
-    {{/each}}
-
-    {{/if}}
-
-
-
-    {{#if hashtagResults}}
-
-    {{#each hashtagResults}}
-    <div class="hashtag-results">
-        <a class="hashtag-link" href="/hashtag/{{this._id}}">
-            <p class="hashtag">{{this.tag}}</p>
-        </a>
-    </div>
-    {{/each}}
-
-    {{else}}
-    <h3>Sorry, nothing found ¯\_(ツ)_/¯</h3>
-    {{/if}}
 </div>
