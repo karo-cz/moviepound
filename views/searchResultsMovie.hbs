@@ -15,25 +15,15 @@
                 </a>
             </div>
             {{/each}}
+            {{else}}
 
-            {{/if}}
-
-
-
-            {{#if hashtagResults}}
-
-            {{#each hashtagResults}}
-            <div class="hashtag-results">
-                <a class="hashtag-link" href="/hashtag/{{this._id}}">
-                    <p class="hashtag">{{this.tag}}</p>
-                </a>
-            </div>
-            {{/each}}
-
-            {{/if}}
-            {{#unless movieResults}}
             <h3>Sorry, nothing found ¯\_(ツ)_/¯</h3>
-            {{/unless}}
+
+            {{/if}}
+
+
+
+     
 
         </div>
     </div>

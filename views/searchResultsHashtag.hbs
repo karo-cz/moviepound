@@ -1,0 +1,26 @@
+<div class="wrapper">
+    <div class="container">
+
+
+        <div class="search-results">
+
+            {{#if hashtagResults}}
+
+            {{#each hashtagResults}}
+            <div class="hashtag-results">
+                <a class="hashtag-link" href="/hashtag/{{this._id}}">
+                    <p class="hashtag">{{this.tag}}</p>
+                </a>
+            </div>
+            {{/each}}
+
+
+            {{else}}
+            <h3>Sorry, nothing found ¯\_(ツ)_/¯</h3>
+            {{/if}}
+
+
+
+        </div>
+    </div>
+</div>

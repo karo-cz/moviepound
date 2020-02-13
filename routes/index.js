@@ -25,7 +25,7 @@ router.get("/searchMovies", (req, res, next) => {
     .then(response => {
       console.log(response.data);
       // res.send(response.data.results);
-      res.render("searchResults", {
+      res.render("searchResultsMovie", {
         movieResults: response.data.results,
         user: req.user
       });

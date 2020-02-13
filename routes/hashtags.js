@@ -108,7 +108,10 @@ router.get("/hashtags", (req, res, next) => {
   let regex = new RegExp(`^#${req.query.hashtag}`);
   Hashtag.find({ tag: { $regex: regex } })
     .then(response => {
-      res.render("searchResults", { hashtagResults: response, user: req.user });
+      res.render("searchResultsHashtag", {
+        hashtagResults: response,
+        user: req.user
+      });
       console.log(response);
     })
     .catch(err => console.log(err));

@@ -16,19 +16,19 @@
 
         <div class="top">
             <div class="logo">
-                <a href="/"><img src="images/white-hashtag-png-4-transparent.png" alt="hashtag-logo"></a>
+                <a href="/"><img src="/images/white-hashtag-png-4-transparent.png" alt="hashtag-logo"></a>
             </div>
 
             <div class="search-bar">
                 {{#if user}}
                 <form id="search-form-title" class="search-form" action="/searchMovies" method="get">
-                    <button type="submit" title="find by title"><img src="images/search.png"
+                    <button type="submit" title="find by title"><img src="/images/search.png"
                             alt="magnifying glass img"></button>
                     <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
                 </form>
                 <form id="search-form-hashtag" class="search-form" action="/hashtags" method="get">
                     <button type="submit" title="search by hashtag"><img
-                            src="images/white-hashtag-png-4-transparent.png" alt="hashtag-img"></button>
+                            src="/images/white-hashtag-png-4-transparent.png" alt="hashtag-img"></button>
                     <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag"
                         id="hashtag-search">
                 </form>
