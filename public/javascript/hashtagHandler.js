@@ -74,9 +74,8 @@ function addHashtagToMovie(event) {
   addedHashtag.classList.add("existing-hashtag");
   console.log(addedHashtag.innerText);
   if (!addedHashtag.innerText.includes("#")) {
-    addedHashtag = +"#";
+    addedHashtag.innerText = "#" + addedHashtag.innerText;
   }
-
   searchTerm = addedHashtag.innerText.replace("#", "");
   console.log("search term:", searchTerm);
 
