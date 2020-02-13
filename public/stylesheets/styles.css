@@ -2,7 +2,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
   background-image: url("../images/popcorn.jpg");
-  background-size: 100vw; 
+  background-size: 100vw;
   /* font-family: "Raleway", sans-serif; */
   font-family: "Montserrat", sans-serif;
   font-size: 20px;
@@ -35,7 +35,7 @@ nav > ul {
   padding: 1em;
 }
 
-#search-form {
+.search-form {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
@@ -128,4 +128,18 @@ nav > ul {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+}
+
+.hashtag-results > a:hover {
+  text-decoration: none;
+}
+
+.movie-titel {
+  color: white;
+  padding: 0.5em;
+  
+}
+
+.movie-titel:hover {
+  text-decoration: none;
 }

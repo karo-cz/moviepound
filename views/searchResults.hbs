@@ -3,18 +3,22 @@
     {{#each movieResults}}
     <div class="movie-card">
         <img class="movie-image" src="https://image.tmdb.org/t/p/w1280{{this.poster_path}}" alt="movie-poster">
-        <h3><a href="/movies/{{this.id}}">{{this.title}}</a></h3>
+        <a href="/movies/{{this.id}}">
+            <h3 class="movie-titel">{{this.title}}</h3>
+        </a>
     </div>
     {{/each}}
+
     {{/if}}
+
 
 
     {{#if hashtagResults}}
 
     {{#each hashtagResults}}
-    <div>
-        <a href="/hashtag/{{this._id}}">
-            <p>{{this.tag}}</p>
+    <div class="hashtag-results">
+        <a class="hashtag-link" href="/hashtag/{{this._id}}">
+            <p class="hashtag">{{this.tag}}</p>
         </a>
     </div>
     {{/each}}
