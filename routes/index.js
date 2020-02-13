@@ -52,6 +52,7 @@ router.get("/movies/:id", (req, res, next) => {
       res.render("movie", {
         user: req.user,
         movieDetail: response.data,
+        movieDetailJSON: JSON.stringify(response.data),
         hashtags: movieHashtags
       });
     })
@@ -59,8 +60,6 @@ router.get("/movies/:id", (req, res, next) => {
 });
 
 router.post("/movielog", (req, res, next) => {
-  //console.log(req.body.currentMovie);
-  //console.log(req.user);
   const {
     title,
     imdbId,
@@ -100,8 +99,6 @@ router.post("/movielog", (req, res, next) => {
 });
 
 router.post("/wishlist", (req, res, next) => {
-  //console.log(req.body.currentMovie);
-  //console.log(req.user);
   const {
     title,
     imdbId,

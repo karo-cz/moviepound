@@ -10,36 +10,46 @@
         rel="stylesheet">
 
     <link rel="stylesheet" href="/stylesheets/styles.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    {{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
 </head>
 
 <body>
-    <nav>
-        <ul>
-            <li class="nav-item">
-                <a href="/">#</a></li>
-            {{#if user}}
-            <li class="nav-item"><a href="/logout">Logout</a></li>
-            <li class="nav-item"><a href="/profile">My movies</a></li>
-            {{else}}
-            <li class="nav-item"><a href="/signup">Signup</a></li>
-            <li class="nav-item"><a href="/login">Login</a></li>
-            {{/if}}
-        </ul>
-    </nav>
-    {{#if user}}
-    <form id="search-form" action="/searchMovies" method="get">
-        <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
-        <button type="submit" title="find by title"> <img
-                src="https://cdn1.vectorstock.com/i/1000x1000/96/70/magnifying-glass-icon-research-symbol-magnifier-vector-21679670.jpg"
-                height="20px" alt="glass"></button>
-    </form>
-    <form id="search-form" action="/hashtags" method="get">
-        <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag" id="hashtag-search">
-        <button type="submit" title="search by hashtag"> #</button>
-    </form>
-    {{/if}}
+    <div class="top">
+        <div class="logo">
+            <img src="/images/hashtag2.png" alt="hashtag-logo">
+        </div>
+        {{!-- {{#if user}} --}}
+        <div class="search-bar">
+            <form id="search-form" action="/searchMovies" method="get">
+                <button type="submit" title="find by title"> <img
+                        src="https://cdn1.vectorstock.com/i/1000x1000/96/70/magnifying-glass-icon-research-symbol-magnifier-vector-21679670.jpg"
+                        alt="glass"></button>
+                <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
+            </form>
+            <form id="search-form" action="/hashtags" method="get">
+                <button type="submit" title="search by hashtag"> #</button>
+                <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag"
+                    id="hashtag-search">
+            </form>
+        </div>
+        {{!-- {{/if}} --}}
+        <nav>
+            <ul>
+                <li class="nav-item">
+                    <a href="/">#</a></li>
+                {{#if user}}
+                <li class="nav-item"><a href="/logout">Logout</a></li>
+                <li class="nav-item"><a href="/profile">My movies</a></li>
+                {{else}}
+                <li class="nav-item"><a href="/signup">Signup</a></li>
+                <li class="nav-item"><a href="/login">Login</a></li>
+                {{/if}}
+            </ul>
+        </nav>
+    </div>
+
+
     <div class="page-body">
         {{{body}}}
     </div>
