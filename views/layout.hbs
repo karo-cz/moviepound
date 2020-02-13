@@ -8,53 +8,51 @@
     <title>MoviePound</title>
     <link href="https://fonts.googleapis.com/css?family=Inconsolata|Montserrat|Raleway|Roboto+Mono&display=swap"
         rel="stylesheet">
-
     <link rel="stylesheet" href="/stylesheets/styles.css">
-    {{!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> --}}
 </head>
 
 <body>
-    <div class="top">
-        <div class="logo">
-            <img src="/images/hashtag2.png" alt="hashtag-logo">
-        </div>
+    <div class="nav-wrapper">
 
-        <div class="search-bar">
-            {{#if user}}
-            <form id="search-form-title" class="search-form" action="/searchMovies" method="get">
-                <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
-                <button type="submit" title="find by title"> <img
-                        src="https://cdn1.vectorstock.com/i/1000x1000/96/70/magnifying-glass-icon-research-symbol-magnifier-vector-21679670.jpg"
-                        height="20px" alt="glass"></button>
-            </form>
-            <form id="search-form-hashtag" class="search-form" action="/hashtags" method="get">
-                <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag"
-                    id="hashtag-search">
-                <button type="submit" title="search by hashtag"> #</button>
-            </form>
-            {{/if}}
-        </div>
+        <div class="top">
+            <div class="logo">
+                <a href="/"><img src="images/white-hashtag-png-4-transparent.png" alt="hashtag-logo"></a>
+            </div>
 
-        <nav>
-            <ul>
-                <li class="nav-item">
-                    <a href="/">#</a></li>
+            <div class="search-bar">
                 {{#if user}}
-                <li class="nav-item"><a href="/logout">Logout</a></li>
-                <li class="nav-item"><a href="/profile">My movies</a></li>
-                {{else}}
-                <li class="nav-item"><a href="/signup">Signup</a></li>
-                <li class="nav-item"><a href="/login">Login</a></li>
+                <form id="search-form-title" class="search-form" action="/searchMovies" method="get">
+                    <button type="submit" title="find by title"><img src="images/search.png"
+                            alt="magnifying glass img"></button>
+                    <input placeholder="Enter a movie you want to search for" type="text" name="search" id="search">
+                </form>
+                <form id="search-form-hashtag" class="search-form" action="/hashtags" method="get">
+                    <button type="submit" title="search by hashtag"><img
+                            src="images/white-hashtag-png-4-transparent.png" alt="hashtag-img"></button>
+                    <input placeholder="Enter a hashtag you want to search for" type="text" name="hashtag"
+                        id="hashtag-search">
+                </form>
                 {{/if}}
-            </ul>
-        </nav>
+            </div>
+
+            <nav class="navbar">
+                <ul>
+                    {{#if user}}
+                    <li class="nav-item"><a href="/logout">Logout</a></li>
+                    <li class="nav-item"><a href="/profile">My movies</a></li>
+                    {{else}}
+                    <li class="nav-item"><a href="/signup">Signup</a></li>
+                    <li class="nav-item"><a href="/login">Login</a></li>
+                    {{/if}}
+                </ul>
+            </nav>
+        </div>
     </div>
 
 
-    <div class="page-body">
-        {{{body}}}
-    </div>
+
+    {{{body}}}
+
 
 
 </body>
