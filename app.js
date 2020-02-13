@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 mongoose
-  .connect("mongodb://localhost/moviepound", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/moviepound", {
     useNewUrlParser: true,
     useUnifiedTopology: true
   })

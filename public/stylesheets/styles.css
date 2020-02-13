@@ -73,8 +73,13 @@ nav > ul {
 /* .page-body {
   padding: 1em;
 }
+<<<<<<< HEAD
 */
 #search-form {
+=======
+
+.search-form {
+>>>>>>> 3aaef6ac70dfd8c6a9842806088b83ad60a0c69e
   display: flex;
   justify-content: flex-start;
   margin: 1em;
@@ -247,4 +252,18 @@ nav > ul {
 
 .user-buttons {
   display: flex;
+}
+
+.hashtag-results > a:hover {
+  text-decoration: none;
+}
+
+.movie-titel {
+  color: white;
+  padding: 0.5em;
+  
+}
+
+.movie-titel:hover {
+  text-decoration: none;
 }

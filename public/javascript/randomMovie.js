@@ -1,5 +1,10 @@
+// require("dotenv").config();
+
 let currentMovieId;
 let currentMovie = {};
+
+// const tmdbKEY = process.env.KARO_KEY;
+// console.log(tmdbKEY);
 
 let loading = true;
 
@@ -15,7 +20,7 @@ async function getAMovie() {
     console.log(axiosCall);
 
     const movieTrailer = await axios.get(
-      `http://api.themoviedb.org/3/movie/${randomMovieId}/videos?api_key=6cca41f7f8c15f95a4d4a11b0fae6429`
+      `https://api.themoviedb.org/3/movie/${randomMovieId}/videos?api_key=6cca41f7f8c15f95a4d4a11b0fae6429`
     );
 
     console.log(movieTrailer);
@@ -78,7 +83,7 @@ document.querySelector(".btn-next-movie").onclick = getAMovie;
 
 function addMovieLog() {
   axios
-    .post("http://localhost:3000/movielog", {
+    .post("/movielog", {
       currentMovie
     })
     .then(response => {
@@ -95,7 +100,7 @@ if (document.querySelector(".btn-add-log")) {
 
 function addWishlist() {
   axios
-    .post("http://localhost:3000/wishlist", {
+    .post("/wishlist", {
       currentMovie
     })
     .then(response => {

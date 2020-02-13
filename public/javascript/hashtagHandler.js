@@ -23,12 +23,13 @@ function searchForHashtag() {
 
   if (searchTerm === "") {
     hashtagBox.innerHTML = "";
-
     return;
   }
 
+  console.log("search term:", searchTerm);
+
   axios
-    .get(`http://localhost:3000/hashtag?hashtag=${hashtag.value}`)
+    .get(`/hashtag?hashtag=${hashtag.value}`)
     .then(response => {
       hashtagBox.innerHTML = "";
 
@@ -71,9 +72,15 @@ function addHashtagToMovie(event) {
   document.querySelector(".hashtags").appendChild(addedHashtag);
   addedHashtag.classList.add("hashtag");
   addedHashtag.classList.add("existing-hashtag");
+  console.log(addedHashtag.innerText);
+  if (!addedHashtag.innerText.includes("#")) {
+    addedHashtag.innerText = "#" + addedHashtag.innerText;
+  }
+  searchTerm = addedHashtag.innerText.replace("#", "");
+  console.log("search term:", searchTerm);
 
   axios
-    .patch(`http://localhost:3000/hashtag?hashtag=${addedHashtag.innerText}`, {
+    .patch(`/hashtag?hashtag=${searchTerm}`, {
       movieId: movieId
     })
     .then(response => {
@@ -89,7 +96,7 @@ function addHashtagToMovie(event) {
 function addHashtagToDatabas(event) {
   console.log("adding new Hashtag to Database");
   axios
-    .post("http://localhost:3000/hashtag", { newTag: event.target.innerText })
+    .post("/hashtag", { newTag: event.target.innerText })
     .then(response => {
       console.log(response.data);
 
@@ -105,7 +112,7 @@ function upvoteHashtag(event) {
   console.log("hashtag-upvoted: ", hashtagValue);
 
   axios
-    .patch(`http://localhost:3000/hashtag?hashtag=${hashtagValue}`, {
+    .patch(`/hashtag?hashtag=${hashtagValue}`, {
       movieId: movieId
     })
     .then(response => {
