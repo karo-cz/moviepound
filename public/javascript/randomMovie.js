@@ -1,12 +1,8 @@
-// require("dotenv").config();
-
 let currentMovieId;
 let currentMovie = {};
 
 // const tmdbKEY = process.env.KARO_KEY;
 // console.log(tmdbKEY);
-
-let loading = true;
 
 async function getAMovie() {
   let randomMovieId = Math.floor(Math.random() * 672000 + 1);
@@ -79,11 +75,11 @@ getAMovie();
 
 // Button NEXT MOVIE
 
-document.querySelector(".btn-next-movie").onclick = getAMovie;
+document.querymovielogSelector(".btn-next-movie").onclick = getAMovie;
 
 function addMovieLog() {
   axios
-    .post("/movielog", {
+    .post("/", {
       currentMovie
     })
     .then(response => {
