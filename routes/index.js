@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 const express = require("express");
 const router = express.Router();
 const axios = require("axios");
@@ -59,7 +61,7 @@ router.get("/movies/:id", (req, res, next) => {
         movieDetail: response.data,
         movieDetailJSON: JSON.stringify(response.data),
         hashtags: movieHashtags
-      })
+      });
     })
     .catch(err => console.log(err));
 });
