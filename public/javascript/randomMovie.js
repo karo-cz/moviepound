@@ -75,7 +75,7 @@ getAMovie();
 
 // Button NEXT MOVIE
 
-document.querymovielogSelector(".btn-next-movie").onclick = getAMovie;
+document.querySelector(".btn-next-movie").onclick = getAMovie;
 
 function addMovieLog() {
   axios

@@ -5,7 +5,7 @@
 
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-image: url("/images/good-yellow-popcorn.jpg");
+  background-image: url("/images/grey-popcorn.jpeg");
   background-size: 100vw;
   /* font-family: "Raleway", sans-serif; */
   font-family: "Montserrat", sans-serif;
@@ -27,7 +27,6 @@ a {
   margin: auto;
 }
 .top {
-  /* padding: 1em; */
   width: 90%;
   display: flex;
   align-items: center;
@@ -173,9 +172,7 @@ a {
 
 .btn-add-log,
 .btn-wishlist {
-  /* padding: 1%; */
   height: 100%;
-  background-size: cover;
   width: 40%;
   background-color: Transparent;
   background-repeat: no-repeat;
@@ -195,6 +192,18 @@ a {
   justify-content: flex-end;
 }
 
+.btn-next-movie {
+  height: 30%;
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+  overflow: hidden;
+  outline: none;
+}
+
+.btn-next-movie img {
+  width: 100%;
+}
 /************************************************************/
 
 /**************** NORA ************************/
