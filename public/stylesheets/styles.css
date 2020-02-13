@@ -70,15 +70,16 @@ nav > ul {
   padding: 0.5em;
 }
 
-/* .page-body {
-  padding: 1em;
-}
-
 .search-form {
   display: flex;
   justify-content: flex-start;
   margin: 1em;
 }
+
+/* .page-body {
+  padding: 1em;
+}
+
 
 #search,
 #hashtag-search {
