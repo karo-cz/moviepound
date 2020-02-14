@@ -1,6 +1,7 @@
 <div class="wrapper">
     <div class="container">
         <div class="movie-details">
+            {{#if user}}
             <div class="movie-detail-box">
                 <div class="movie-detail-image-box">
 
@@ -48,9 +49,20 @@
 
 
             </div>
+            {{else}}
+            <h2>Please <a href="/login">login</a> to the page to use this feature!</h2>
+
+            {{/if }}
+
         </div>
+
     </div>
+
 </div>
+
+
+
+
 
 
 <script>
