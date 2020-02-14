@@ -243,6 +243,7 @@ a {
   font-size: 0.8em;
   margin-top: 0.5em;
   border-radius: 0.5em;
+  padding: 0 1em;
 }
 }
 
@@ -302,7 +303,7 @@ a {
 .movie-details {
   height: 100%;
   display: flex;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
 }
 
 .movie-detail-box {
@@ -338,11 +339,14 @@ a {
 
 .movie-detail-text {
   padding: 0 3%;
+  overflow-y: scroll;
+
 }
 
 .movie-text {
-  border-top: 1px solid #444444;
-  border-bottom: 1px solid #444444;
+  border-top: 1px solid #9c9c9c;
+  border-bottom: 1px solid #9c9c9c;
+  padding-top: 1.5%;
 }
 
 .title-MD {
@@ -361,13 +365,13 @@ a {
 }
 
 .new-hashtags{
-  border-bottom: 1px solid #444444; 
+  border-bottom: 1px solid #9c9c9c; 
   margin-bottom: 0.5em
 }
-
+/* 
 #existing-hashtags {
   font-weight: bold;
-}
+} */
 
 /**************************************/
 .movie-image {

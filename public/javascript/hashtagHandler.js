@@ -75,6 +75,8 @@ function addHashtagToMovie(event) {
   document.querySelector(".hashtags").appendChild(addedHashtag);
   addedHashtag.classList.add("hashtag");
   addedHashtag.classList.add("existing-hashtag");
+  addedHashtag.classList.add("hashtag-MD");
+
   console.log(addedHashtag.innerText);
   if (!addedHashtag.innerText.includes("#")) {
     addedHashtag.innerText = "#" + addedHashtag.innerText;
