@@ -56,12 +56,29 @@ router.get("/movies/:id", (req, res, next) => {
     .get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${tmdbKEY}`)
     .then(response => {
       console.log(response.data);
-      res.render("movie", {
-        user: req.user,
-        movieDetail: response.data,
-        movieDetailJSON: JSON.stringify(response.data),
-        hashtags: movieHashtags
-      });
+
+      axios
+        .get(
+          `https://api.themoviedb.org/3/movie/${movieId}/videos?api_key=6cca41f7f8c15f95a4d4a11b0fae6429`
+        )
+        .then(trailerResponse => {
+          // res.send(trailerResponse.data);
+          // console.log(trailerResponse.data.results.length);
+
+          let theTrailer = {};
+          if (trailerResponse.data.results.length > 0) {
+            theTrailer = trailerResponse.data.results[0];
+          }
+
+          res.render("movie", {
+            user: req.user,
+            movieDetail: response.data,
+            movieDetailJSON: JSON.stringify(response.data),
+            hashtags: movieHashtags,
+            trailer: theTrailer
+          });
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => console.log(err));
 });
