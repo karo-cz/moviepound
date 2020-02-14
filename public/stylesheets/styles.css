@@ -292,6 +292,7 @@ a {
 .movie-details {
   height: 100%;
   display: flex;
+  overflow: scroll;
 }
 
 .movie-detail-box {
