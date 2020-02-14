@@ -5,10 +5,15 @@ let currentMovie = {};
 // console.log(tmdbKEY);
 
 async function getAMovie() {
-  document.querySelector(".btn-add-log").innerHTML =
-    '<img src="images/checkbox.png" alt="checkbox-image">';
-  document.querySelector(".btn-wishlist").innerHTML =
-    '<img src="images/add-to-wishlist.png" alt = "add-wishlist" >';
+  if (
+    document.querySelector(".btn-add-log") &&
+    document.querySelector(".btn-wishlist")
+  ) {
+    document.querySelector(".btn-add-log").innerHTML =
+      '<img src="images/checkbox.png" alt="checkbox-image">';
+    document.querySelector(".btn-wishlist").innerHTML =
+      '<img src="images/add-to-wishlist.png" alt = "add-wishlist" >';
+  }
 
   let randomMovieId = Math.floor(Math.random() * 672000 + 1);
   console.log(randomMovieId);
@@ -38,8 +43,7 @@ async function getAMovie() {
     console.log(axiosCall);
 
     // Display tagline
-    // document.querySelector(".movie-overview").innerText =
-    //   axiosCall.data.tagline;
+    document.querySelector(".movie-tagline").innerText = axiosCall.data.tagline;
 
     //Display release date
     document.querySelector(".release-date").innerText =
