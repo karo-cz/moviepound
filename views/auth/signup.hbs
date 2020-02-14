@@ -1,18 +1,26 @@
-<form action="/signup" method="post">
+<div class="wrapper">
+    <div class="container">
+        <div class="auth-container">
+            <div class="auth-img-box">
+                <img class="auth-img" src="/images/white-hashtag-png-4-transparent.png" alt="">
+            </div>
+            <div class="auth-box">
 
-    <label for="username">Username</label>
-    <input name="username" id="username" type="text">
-
-    <label for="password">Password</label>
-    <input type="password" id="password" name="password">
-
-    <button type="submit">
-        Sign me up!
-    </button>
-
-
-</form>
-
-{{#if message}}
-<p>{{message}}</p>
-{{/if}}
+                <form action="/signup" method="post">
+                    <div class="field-box">
+                        <label for="username">Username</label>
+                        <input name="username" id="username" class="auth-input" type="text">
+                    </div>
+                    <div class="field-box">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" class="auth-input" name="password">
+                    </div>
+                    <button type="submit" class="auth-btn">#SIGNUP</button>
+                </form>
+                {{#if message}}
+                <p>{{message}}</p>
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>

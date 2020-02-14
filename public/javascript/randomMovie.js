@@ -5,6 +5,11 @@ let currentMovie = {};
 // console.log(tmdbKEY);
 
 async function getAMovie() {
+  document.querySelector(".btn-add-log").innerHTML =
+    '<img src="images/checkbox.png" alt="checkbox-image">';
+  document.querySelector(".btn-wishlist").innerHTML =
+    '<img src="images/add-to-wishlist.png" alt = "add-wishlist" >';
+
   let randomMovieId = Math.floor(Math.random() * 672000 + 1);
   console.log(randomMovieId);
 
@@ -78,8 +83,9 @@ getAMovie();
 document.querySelector(".btn-next-movie").onclick = getAMovie;
 
 function addMovieLog() {
+  console.log("i was clicked");
   axios
-    .post("/", {
+    .post("/movielog", {
       currentMovie
     })
     .then(response => {
@@ -95,6 +101,7 @@ if (document.querySelector(".btn-add-log")) {
 }
 
 function addWishlist() {
+  console.log("wishlist clicked");
   axios
     .post("/wishlist", {
       currentMovie
