@@ -120,6 +120,7 @@ a {
 }
 
 .trailer-container {
+  
   width: 68%;
 }
 
@@ -237,8 +238,12 @@ a {
 
 #hashtag-input {
   width: 80%;
-  height: 3em;
+  height: 2em;
   border: none;
+  font-size: 0.8em;
+  margin-top: 0.5em;
+  border-radius: 0.5em;
+}
 }
 
 /***************************STRICTLY HASHTAGS*******/
@@ -249,7 +254,7 @@ a {
 .hashtags {
   display: flex;
   flex-flow: row wrap;
-  margin: 1em 0;
+  margin: 0.5em 0;
 }
 
 .hashtag {
@@ -261,6 +266,10 @@ a {
   font-size: 2em;
 }
 
+.hashtag-MD{
+  font-size: 0.8em
+}
+
 .hashtag:active {
   background-color: lightcoral;
   color: white;
@@ -268,6 +277,7 @@ a {
 
 .new-hashtag {
   color: grey;
+ 
 }
 .hashtag-clicked {
   background-color: grey;
@@ -341,12 +351,18 @@ a {
 }
 .overview {
   font-size: 1em;
-  padding: 1% 0 3%;
+  padding: 1.5% 0;
 }
 
 #existing-hashtags,
 .new-hashtags {
   font-size: 1.25em;
+  margin-top: 0.3em;
+}
+
+.new-hashtags{
+  border-bottom: 1px solid #444444; 
+  margin-bottom: 0.5em
 }
 
 #existing-hashtags {

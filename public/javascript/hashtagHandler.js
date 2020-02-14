@@ -40,6 +40,7 @@ function searchForHashtag() {
         hashtagSuggestion.classList.add("hashtag-suggestion");
         hashtagSuggestion.classList.add("new-hashtag");
         hashtagSuggestion.classList.add("hashtag");
+        hashtagSuggestion.classList.add("hashtag-MD");
         hashtagBox.appendChild(hashtagSuggestion);
         hashtagSuggestion.onclick = addHashtagToDatabas;
         return;
@@ -50,6 +51,8 @@ function searchForHashtag() {
         hashtagSuggestion.innerText = hashtag.tag;
         hashtagSuggestion.classList.add("hashtag-suggestion");
         hashtagSuggestion.classList.add("hashtag");
+        hashtagSuggestion.classList.add("hashtag-MD");
+
         hashtagBox.appendChild(hashtagSuggestion);
         hashtagSuggestion.onclick = addHashtagToMovie;
       });

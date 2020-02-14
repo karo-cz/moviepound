@@ -22,10 +22,10 @@
                 </div>
 
                 <div id="existing-hashtags">
-                    <p>USERS' HASHTAGS</p>
+                    <p>Existing Hashtags</p>
                     <div class="hashtags">
                         {{#each hashtags}}
-                        <p class="hashtag existing-hashtag">{{this}}</p>
+                        <p class="hashtag existing-hashtag hashtag-MD">{{this}}</p>
                         {{/each}}
                     </div>
                 </div>
@@ -71,8 +71,9 @@
     console.log("current movie", currentMovie);
 
     function addMovieLog() {
+        console.log("i was clicked")
         axios
-            .post("http://localhost:3000/movielog", {
+            .post("/movielog", {
                 currentMovie
             })
             .then(response => {
@@ -84,11 +85,12 @@
             });
     }
 
-    document.querySelector(".movielog").onclick = addMovieLog;
+    document.querySelector(".btn-add-log-MD").onclick = addMovieLog;
 
     function addWishlist() {
+        console.log("i was clicked")
         axios
-            .post("http://localhost:3000/wishlist", {
+            .post("/wishlist", {
                 currentMovie
             })
             .then(response => {
@@ -100,7 +102,7 @@
             });
     }
 
-    document.querySelector(".wishlist").onclick = addWishlist;
+    document.querySelector(".btn-wishlist-MD").onclick = addWishlist;
 
 </script>
 
