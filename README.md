@@ -1,6 +1,6 @@
 # moviepound
 
- Moviepound is a second project summarizing second module of the Ironhack Web Development Bootcamp.
+ Moviepound is a project summarizing second module of the Ironhack Web Development Bootcamp.
  The main focus is the backend functionality working with 
  Node.js, 
  Express.js, 
@@ -8,7 +8,7 @@
  MogdoDB, 
  Mongoose 
  API TMDB
- JavaScritp, HTML, CSS (frontend)
+ JavaScript, HTML, CSS (frontend)
  
  The project was made in 5 days in collaboration with @Norizinus.
  
