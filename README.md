@@ -1,4 +1,4 @@
-Moviepound is a project summarizing the second module of the Web Development Bootcamp at Ironhack. The idea came from the feeling of frustration trying to find the right movie to watch, ending up sorting trough many movie suggestions for hours. They are not always well described or missing a trailer.
+Moviepound is a project summarizing the second module of the Web Development Bootcamp at Ironhack. The idea came from the feeling of frustration, each time trying to find the right movie to watch, ending up sorting through many movie suggestions for hours. The goal was to give the user a big selection of films with trailers, description and addition of most popluar and personalized type of comments - HASHTAGS!
 
 The main focus of this project was the backend functionality working with 
 Node.js, 
